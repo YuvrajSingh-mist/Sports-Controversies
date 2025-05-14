@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+%\usepackage{cite}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{caption}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{booktabs} % For better table formatting
+\usepackage{multirow} % For multirow cells
+\usepackage{array} % For custom column alignment
+\usepackage{tabularx} % For auto-adjusting table width
+\usepackage{booktabs} % For better table formatting
+\usepackage{adjustbox} % For scaling the table
+\usepackage{geometry} % For better page margins
+\usepackage{array}
+\usepackage[section]{placeins} % for \FloatBarrier
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\title{Analyzing Public Sentiment on Controversial Sports Events in YouTube Comments}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Details of Events}
+
+\begin{enumerate}
+    \item \textit{Frank Lampard Ghost Goal}
+
+% Frank Lampard Ghost Goal
+Frank Lampard's "Ghost Goal" in the 2010 World Cup against Germany was a pivotal moment of controversy. The goal, clearly crossing the line, was not awarded by referee Jorge Larrionda and assistant Mauricio Espinosa, who were distracted at the time \footnote{\url{https://www.givemesport.com/88026866-frank-lampard-ghost-goal-how-did-officials-miss-england-stars-shot-crossing-the-line/}}. This incident was widely covered in media and sparked calls for goal-line technology, later implemented by FIFA. The decision contributed to Germany's victory with 4-1, overshadowing England's overall performance in the tournament. The incident remains a significant moment in football history, symbolizing the need for technological advancements in refereeing.
+
+\item \textit{Maradona Hand of God}
+%Maradona Hand of God
+During the quarter-final match between Argentina and England, Maradona used his hand\footnote{\url{https://thesefootballtimes.co/2016/02/28/diego-maradona-and-the-reality-behind-the-hand-of-god/}} to score a goal. The incident was set against the backdrop of the Falklands War, adding a layer of nationalistic fervour to the match. The goal sparked widespread media coverage and fan outrage, with many criticizing Maradona's actions as unsportsmanlike. Maradona later attributed the goal to the "Hand of God," a phrase that has become synonymous with the event. The controversy highlighted the need for technological advancements in refereeing, later implemented by FIFA. Years later, Maradona acknowledged the handball, viewing it as "symbolic revenge" for Argentina's defeat in the Falklands War.
+
+
+\item \textit{Luis Suarez Handball}
+% Handball
+
+Luis Suárez's deliberate handball \footnote{\url{https://www.skysports.com/football/news/12040/12759389/uruguays-luis-suarez-says-he-will-not-apologise-to-ghana-for-his-handball-that-knocked-them-out-of-2010-world-cup}} in the 2010 World Cup quarter-final against Ghana was a pivotal moment of controversy. Suárez used his hands to block Dominic Adiyiah's goal-bound shot, earning a red card and a penalty for Ghana. However, Asamoah Gyan missed the penalty, and Uruguay won the match in a penalty shootout, denying Ghana a historic semi-final spot. The incident sparked widespread outrage in Ghana, with many viewing Suárez's actions as unsportsmanlike. Suárez has consistently refused to apologize for the handball, stating that he would only apologize if he had injured a player, not for a tactical decision that led to a penalty. The event remains a significant point of contention between Uruguay and Ghana, with Suárez often being seen as a villain in Ghanaian eyes.
+
+
+
+\item \textit{Jonny Bairstow Ashes Runout}
+
+The Jonny Bairstow \footnote{\url{https://www.espncricinfo.com/story/jonny-bairstow-reignites-ashes-stumping-row-1405100}} runout during the Ashes 2023 was a contentious moment that sparked significant debate about the spirit of cricket. Bairstow was dismissed by Alex Carey after leaving his crease prematurely, a move that was within the rules but questioned by many for its sportsmanship. The incident led to heated discussions among former cricketers and pundits, with some defending the dismissal as legitimate and others viewing it as against the spirit of the game. England captain Joe Root initially expressed anger but later acknowledged the legality of the dismissal, emphasizing the importance of players staying within their crease. The incident ignited strong reactions from fans and players alike, with some members of the Marylebone Cricket Club facing disciplinary actions for their behaviour.
+
+
+\item \textit{Ravichandran Ashwin's Mankading}
+
+Ravichandran Ashwin's Mankading \footnote{\url{https://www.espncricinfo.com/story/if-you-think-it-doesn-t-fit-into-cricket-change-the-rule-ashwin-on-mankading-1180028}} of Jos Buttler in the 2019 Indian Premier League (IPL) match between Kings XI Punjab and Rajasthan Royals sparked significant controversy. Ashwin removed the bails at the non-striker's end after noticing Buttler had left the crease before the ball was bowled, a move that was legal but criticized for being against the spirit of the game. The incident led to intense debate, with some defending Ashwin's actions as legitimate under the rules and others accusing him of poor sportsmanship123. The controversy reignited discussions about the "Mankad" dismissal, named after Vinoo Mankad, who first used this method in a 1947-48 Test match against Australia. Ashwin defended his actions, stating that players should stay within their crease to avoid such dismissals
+
+
+\item \textit{The Underarm}
+
+The Underarm \footnote{\url{https://www.espncricinfo.com/story/trevor-chappell-s-underarm-delivery-498574}} Incident in 1981 was a highly controversial moment in cricket history. During an ODI match between Australia and New Zealand at the Melbourne Cricket Ground, Australian captain Greg Chappell instructed his brother Trevor Chappell to bowl an underarm delivery to prevent New Zealand from hitting a six off the final ball, which would have tied the match. This action, although legal at the time, was widely criticized as being against the spirit of the game. The incident sparked significant outrage in New Zealand and Australia, with many viewing it as unsportsmanlike. It led to an amendment in the laws of cricket, banning underarm deliveries in one-day matches as they were deemed "not within the spirit of the game". The incident remains a notable example of how actions within the rules can still violate the game's ethos, and it continues to be remembered as one of the most infamous moments in cricket history.
+
+\section{Definition of Labels Used}
+
+Here we define what we mean by \textbf{Favor}, \textbf{Against}, \textbf{Neutral} and \textbf{Irrelevant}
+
+\noindent {\bf Favor}: 
+
+\begin{enumerate}
+    \item \textit{Maradona Hand of God}: Any comment that defends Maradona's action or justifies it as part of the game (e.g., "It was clever of Maradona to use the opportunity when the referee didn’t see it").
+
+    \item \textit{Luis Suarez Handball}: The text expresses approval of Luis Suarez's actions, seeing them as justified, strategic, or beneficial to Uruguay. It may highlight the idea that Suarez did what was necessary to win or frame his handball as a heroic or intelligent move.
+
+
+    \item \textit{Frank Lampard Ghost Goal}:  The text or opinion supports the idea that Frank Lampard's goal should have been awarded and emphasizes the need for fair officiating or the introduction of goal-line technology. It reflects agreement with the claim that the referees made a mistake by not allowing the goal.
+    
+\end{enumerate}
+\noindent {\bf Against}:
+\begin{enumerate}
+    \item \textit{Maradona Hand of God}: Comments that criticize Maradona for breaking the rules or call the goal an act of cheating. 
+
+       \item \textit{Luis Suarez Handball}: The text condemns Suarez's actions, describing them as unfair, unsportsmanlike, or unethical. It emphasizes the negative impact of his behavior on Ghana or criticizes the lack of consequences for Uruguay’s win.
+     \item \textit{Frank Lampard Ghost Goal}: The text or opinion argues against the importance of the disallowed goal or suggests that it did not significantly change the outcome of the match. It may downplay the controversy or defend the referee's decision, even if the goal was not awarded.
+    
+       
+\end{enumerate}
+\noindent {\bf Neutral}:
+
+\begin{enumerate}
+    \item \textit{Maradona Hand of God}: Balanced or objective comments that acknowledge both sides without taking a strong position.
+       \item \textit{Luis Suarez Handball}: The text provides factual or balanced information about Suarez’s handball incident without showing strong favor or disapproval. It simply describes the event without taking a clear position.
+     \item \textit{Frank Lampard Ghost Goal}: The text or opinion acknowledges the event but does not explicitly take a stance for or against the disallowed goal. It presents the situation without offering an opinion on whether the goal should have been allowed or whether it affected the match.
+    
+    
+\end{enumerate}
+\noindent {\bf Irrelevant}:
+
+\begin{enumerate}
+    \item \textit{Maradona Hand of God}:Comments unrelated to the specific event, such as general discussions about football or unrelated players, or comments focusing on a different match or era . These comments do not directly engage with the "Hand of God" incident.
+       \item \textit{Luis Suarez Handball}: The text does not discuss or express an opinion about Luis Suarez’s handball. It might mention other aspects of the match or unrelated topics, but it does not provide a stance on the incident itself.
+     \item \textit{Frank Lampard Ghost Goal}: The text or opinion does not relate to the Frank Lampard ghost goal controversy at all or discusses unrelated topics.
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
