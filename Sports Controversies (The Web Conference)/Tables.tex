@@ -44,6 +44,12 @@ We have attached the tables for a sample of annotated comments from our dataset.
 \\
 \noindent {\bf Table 6: } Provides a further statistical summary mapping detailed sub-categories to main sentiment labels for the Frank Lampard Event.
 
+\section{Logistic Classifier Performance on Model Probing}
+\noindent {\bf Table 7 \& 8: } Provides a further statistical summary mapping the AUC and Accuracy scores of the trained logistic classifier on attn outputs of fine tuned and non fine tuned models.
+
+
+\section{Visualisation of Probing Analysis}
+\noindent { \bf {Fig 1 \& 2 \& 3} shows the same for the remaining events} 
 
 \vspace{5mm} % Add space before table
 
@@ -217,5 +223,84 @@ We have attached the tables for a sample of annotated comments from our dataset.
     \end{adjustbox}
 \end{table}
 
+\clearpage
+
+
+\begin{table*}[t]
+    \centering
+    \renewcommand{\arraystretch}{1.2} % Increase spacing between rows
+    \begin{adjustbox}{width=0.95\textwidth} % Make table use 95% of text width
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Event} & \textbf{Model Type} & \textbf{Accuracy} & \textbf{Top Token} & \textbf{Layer} & \textbf{AUC} \\
+        \hline
+        \multirow{2}{*}{\textbf{Frank Lampard}} & Fine-Tuned & 86\% & exact\_answer\_first\_token & 1-6 & 0.9993 \\
+        & Not Fine-Tuned & 44.25\% & first\_answer\_token & 31 & 0.8973 \\
+        \hline
+        \multirow{2}{*}{\textbf{Luis Suarez}} & Fine-Tuned & 82.5\% & exact\_answer\_last\_token & 16-20 & 0.9901 \\
+        & Not Fine-Tuned & 31\% & exact\_answer\_first\_token & 11, 31 & 0.8249 \\
+        \hline
+        \multirow{2}{*}{\textbf{Maradona}} & Fine-Tuned & 56\% & exact\_answer\_first\_token & 25 & 0.8468 \\
+        & Not Fine-Tuned & 44\% & exact\_answer\_first\_token & 31 & 0.9431 \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Logistic Classifier Performance Metrics across Different Events. The table shows the accuracy, most informative token positions, layers with highest performance, and AUC values for fine-tuned vs. non-fine-tuned models. Note how fine-tuned models consistently show higher accuracy and tend to focus attention on the exact answer tokens.}
+    \label{tab:logistic_classifier}
+\end{table*}
+
+\vspace{15mm} % Add more space between tables
+
+\begin{table*}[b]
+    \centering
+    \renewcommand{\arraystretch}{1.2} % Increase spacing between rows
+    \begin{adjustbox}{width=0.95\textwidth} % Make table use 95% of text width
+    \begin{tabular}{|c|c|c|p{8cm}|} % Increased the width of the last column
+        \hline
+        \textbf{Event} & \textbf{Model Type} & \textbf{F1 Score} & \textbf{Top 5 Accuracy Layers/Tokens} \\
+        \hline
+        \multirow{2}{*}{\textbf{Frank Lampard}} & Fine-Tuned & 0.96 & Layer 1-6, exact\_answer\_first\_token, Acc: 0.975 \\
+        & Not Fine-Tuned & 0.916 & Layer 31, first\_answer\_token, Acc: 0.8625 \\
+        \hline
+        \multirow{2}{*}{\textbf{Luis Suarez}} & Fine-Tuned & 0.944 & Layers 16-20, exact\_answer\_last\_token, Acc: 0.975 \\
+        & Not Fine-Tuned & 0.842 & Layer 10/14, exact\_answer\_last\_token, Acc: 0.775 \\
+        \hline
+        \multirow{2}{*}{\textbf{Maradona}} & Fine-Tuned & 0.773 & Layer 25, exact\_answer\_first\_token, Acc: 0.7875 \\
+        & Not Fine-Tuned & 0.872 & Layer 31, exact\_answer\_first\_token, Acc: 0.875 \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption{F1 Scores and Top 5 Accuracy Results from Probing Analysis. This table highlights the different levels of attention concentration in fine-tuned vs. non-fine-tuned models. Fine-tuned models generally have more consistent token focus across multiple layers.}
+    \label{tab:f1_scores}
+\end{table*}
+
+\clearpage
+
+
+% Force each image to appear on its own with a hard page break between them
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.7\textwidth]{maradona-positiveclass.jpg}
+    \caption{Maradona Event - Positive Class}
+    \label{fig:maradona-positive}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.7\textwidth]{frank_lampard_negative_class.png}
+    \caption{Frank Lampard Event - Negative Class - diffused attention - all layers and tokens}
+    \label{fig:lampard-negative}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.7\textwidth]{luis_suarez_negative_class.png}
+    \caption{Luis Suarez Event - Negative Class (diffused attention - all layers and tokens}
+    \label{fig:suarez-negative}
+\end{figure}
 
 \end{document}
