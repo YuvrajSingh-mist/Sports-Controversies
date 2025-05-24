@@ -1,50 +1,4 @@
-%%
-%% This is file `sample-sigconf.tex',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% samples.dtx  (with options: `all,proceedings,bibtex,sigconf')
-%% 
-%% IMPORTANT NOTICE:
-%% 
-%% For the copyright see the source file.
-%% 
-%% Any modified versions of this file must be renamed
-%% with new filenames distinct from sample-sigconf.tex.
-%% 
-%% For distribution of the original source see the terms
-%% for copying and modification in the file samples.dtx.
-%% 
-%% This generated file may be distributed as long as the
-%% original source files, as listed above, are part of the
-%% same distribution. (The sources need not necessarily be
-%% in the same archive or directory.)
-%%
-%%
-%% Commands for TeXCount
-%TC:macro \cite [option:text,text]
-%TC:macro \citep [option:text,text]
-%TC:macro \citet [option:text,text]
-%TC:envir table 0 1
-%TC:envir table 0 1
-%TC:envir tabular [ignore] word
-%TC:envir displaymath 0 word
-%TC:envir math 0 word
-%TC:envir comment 0 0
-%%
-%% The first command in your LaTeX source must be the \documentclass
-%% command.
-%%
-%% For submission and review of your manuscript please change the
-%% command to \documentclass[manuscript, screen, review]{acmart}.
-%%
-%% When submitting camera ready or to TAPS, please change the command
-%% to \documentclass[sigconf]{acmart} or whichever template is required
-%% for your publication.
-%%
-%%
-%\documentclass[sigconf]{acmart}
+
 \documentclass[sigconf, review]{acmart}
 %%
 %% \BibTeX command to typeset BibTeX logo in the docs
@@ -52,11 +6,6 @@
   \providecommand\BibTeX{{%
     Bib\TeX}}}
 
-%% Rights management information.  This information is sent to you
-%% when you complete the rights form.  These commands have SAMPLE
-%% values in them; it is your responsibility as an author to replace
-%% the commands and values with those provided to you when you
-%% complete the rights form.
 \setcopyright{acmlicensed}
 \copyrightyear{2018}
 \acmYear{2018}
@@ -65,46 +14,11 @@
 \acmConference[Conference acronym 'XX]{Make sure to enter the correct
   conference title from your rights confirmation email}{June 03--05,
   2018}{Woodstock, NY}
-%%
-%%  Uncomment \acmBooktitle if the title of the proceedings is different
-%%  from ``Proceedings of ...''!
-%%
-%%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
-%%  June 03--05, 2018, Woodstock, NY}
+
 \acmISBN{978-1-4503-XXXX-X/2018/06}
 
 
-%%
-%% Submission ID.
-%% Use this when submitting an article to a sponsored event. You'll
-%% receive a unique submission ID from the organizers
-%% of the event, and this ID should be used as the parameter to this command.
-%%\acmSubmissionID{123-A56-BU3}
 
-%%
-%% For managing citations, it is recommended to use bibliography
-%% files in BibTeX format.
-%%
-%% You can then either use BibTeX with the ACM-Reference-Format style,
-%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
-%% support for advanced citation of software artefact from the
-%% biblatex-software package, also separately available on CTAN.
-%%
-%% Look at the sample--biblatex.tex files for templates showcasing
-%% the biblatex styles.
-%%
-
-%%
-%% The majority of ACM publications use numbered citations and
-%% references.  The command \citestyle{authoryear} switches to the
-%% "author year" style.
-%%
-%% If you are preparing content for an event
-%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
-%% citations and references.
-%% Uncommenting
-%% the next command will enable that style.
-%%\citestyle{acmauthoryear}
 
 \usepackage{graphicx}
 \usepackage{amsmath, amssymb}
@@ -114,6 +28,7 @@
 \usepackage{algorithmic}
 \usepackage{hyperref}
 \usepackage{caption}
+\usepackage{subcaption} % For subfigures and side-by-side images
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 \usepackage{booktabs} % For better table formatting
@@ -189,6 +104,10 @@
 \begin{abstract}
   This paper presents an analysis of YouTube comments on famous and controversial Public Sports Events. We explore public stance (stance detection) on a total of 6 famous controversial sports incidents by extracting and processing YouTube comments. Stance detection is performed on multiple events, including \textit{The Underarm Incident}, \textit{Jonny Bairstow's Run-Out} Incident, \textit{Ashwin's Mankadding} Event, \textit{Luis Suarez Handball} Event etc. 
 The complete event details,  results and evaluation metrics will be discussed in detail in subsequent sections.
+Our models can be found here \footnote{\url{https://huggingface.co/YuvrajSingh9886/Llama3.1-8b-Maradona/}} \footnote{\url{https://huggingface.co/YuvrajSingh9886/Llama3.1-8b-Frank-Lampard/}} \footnote{\url{https://huggingface.co/YuvrajSingh9886/Llama-3.1-8b-Luis-Suarez}}. Our entire pipeline can be found here \footnote{\url{https://github.com/YuvrajSingh-mist/Public-Sports-Controversy/tree/master/data/PDFs}}
+       
+  
+
 \end{abstract}
 
 
@@ -325,41 +244,42 @@ Detailed results, including the distribution of stances (For, Against, Neutral, 
 \begin{table*}[!htbp]
     \centering
     { % Start local grouping so formatting changes do not leak
-      \renewcommand{\arraystretch}{1.2}% Adjust row height locally
-      \setlength{\tabcolsep}{4pt}% Adjust column separation locally
-      \begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
+      \small % Reduce font size
+      \renewcommand{\arraystretch}{1.0}% Reduce row height
+      \setlength{\tabcolsep}{3pt}% Reduce column separation
+      \begin{tabular}{|c|p{3.5cm}|p{3.5cm}|p{3.5cm}|}
           \hline
           \textbf{Event} & \textbf{Favor} & \textbf{Against} & \textbf{Neutral} \\
           \hline
-          {\textit{Frank Lampard Ghost Goal}} 
+          {\textit{Frank}} 
            & Germans can't say anything about unsporting behavior.  
            & The 1966 ghost goal had to be paid for. 
-           & This was way more clear-cut than 1966. \\
+           & This was more clear-cut than 1966. \\
           \hline
-          {\textit{Luis Suárez Handball}} 
-           & Morality always loses, and nice guys finish last.  
+          {\textit{Suárez}} 
+           & Morality loses, nice guys finish last.  
            & Hand of Satan. 
            & He will never step foot in Ghana. \\
           \hline
-          {\textit{Maradona Hand of God}} 
-           & Number 15 goal is something else...my favourite. Bravo. 
-           & The most cheating player in football history. 
-           & You will never be able to pick one between Maradona and Messi. \\
+          {\textit{Maradona}} 
+           & Goal 15 is something else...my favourite. 
+           & Most cheating player in history. 
+           & Can't pick between Maradona and Messi. \\
           \hline
-          {\textit{Jonny Bairstow's Run-Out}} 
-           & That’s not cheating, that’s the way of winning. 
+          {\textit{Bairstow}} 
+           & Not cheating, that's winning. 
            & Same old Aussies, always cheating. 
-           & The lesson for the players is ``pay attention''. \\
+           & Lesson: ``pay attention''. \\
           \hline
-          {\textit{Ashwin Mankading Event}} 
-           & If a bowler can keep his foot inside the crease, a batsman can wait with the bat inside the crease until the ball is bowled. What's wrong with that? 
-           & If you Mankad, you should be ashamed of yourself. That means you don't have the skill to take the wicket by bowling. 
-           & Ashwin merely expressed his disappointment but never wanted a wicket that way. Team decision reflects it. \\
+          {\textit{Ashwin}} 
+           & If bowler keeps foot inside, batsman can wait inside until ball is bowled. 
+           & If you Mankad, you lack bowling skill. 
+           & Ashwin expressed disappointment, never wanted that wicket. \\
           \hline
-          {\textit{The Underarm Incident}} 
-           & That time it was legal to bowl underarm according to rules. 
-           & That was against the rules!! Couldn't they just ball a normal delivery? I mean there was no way a six would have been surely hit... well there could be... 
-           & What were the exact rules for underarm deliveries back then? Were you allowed to bowl as many as you wanted, and if so, why didn't they do it all the time? \\
+          {\textit{Underarm}} 
+           & It was legal to bowl underarm then. 
+           & Against rules! Couldn't they bowl normally? 
+           & What were rules for underarm deliveries back then? \\
           \hline
       \end{tabular}
     } % End local grouping
@@ -374,31 +294,31 @@ Detailed results, including the distribution of stances (For, Against, Neutral, 
 
 \begin{table*}[htbp]
     \centering
+    \footnotesize % Use even smaller font size
+    \setlength{\tabcolsep}{2pt} % Further reduce column separation
+    \renewcommand{\arraystretch}{0.8} % Further reduce row height
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
         \textbf{Model} & \textbf{Event} & \textbf{Accuracy} & \textbf{Recall (micro)} & \textbf{Precision (micro)} & \textbf{F1 (micro)} \\
          \hline
-         DeepSeek-R1-Distill-Llama-8B \\ (Not Fine Tuned) & \textit{Maradona Hand of God} & 22.76\% & 23\% & 31\% & 9\% \\
-         & \textit{Luis Suarez Handball} & 33.7\% & 34\% & 49\% & 24\% \\
-         & \textit{Frank Lampard Ghost Goal} & 223 \% & 23\% & 31 \% & 9\% \\
-         % \hline
+         DeepSeek-8B (NFT) & \textit{Maradona} & 22.8\% & 23\% & 31\% & 9\% \\
+         & \textit{Suarez} & 33.7\% & 34\% & 49\% & 24\% \\
+         & \textit{Lampard} & 23\% & 23\% & 31\% & 9\% \\
           \hline
-        DeepSeek-R1-Distill-Llama-8B \\ (Fine Tuned) & \textit{Maradona Hand of God} & 76.20\% & 76\% & 76\% & 76\% \\
-         & \textit{Luis Suarez Handball} &  78\% & 78\% & 78 \% & 78\% \\
-         & \textit{Frank Lampard Ghost Goal} & 76.2 \% & 76\% & 76 \% &76\% \\
-         % \hline
-         
+        DeepSeek-8B (FT) & \textit{Maradona} & 76.2\% & 76\% & 76\% & 76\% \\
+         & \textit{Suarez} & 78\% & 78\% & 78\% & 78\% \\
+         & \textit{Lampard} & 76.2\% & 76\% & 76\% & 76\% \\
         \hline
-        Llama 3.1-8b-Instruct (Not Fine Tuned) & \textit{Maradona Hand of God} & 46.8\% & 46\% & 56\% & 40\% \\
-         & \textit{Luis Suarez Handball} &  22.8 \% & 23\% & 31 \% & 9\% \\
-         & \textit{Frank Lampard Ghost Goal} & 26.3 \% & 26\% & 39 \% & 25\% \\
+        Llama 3.1-8b (NFT) & \textit{Maradona} & 46.8\% & 46\% & 56\% & 40\% \\
+         & \textit{Suarez} & 22.8\% & 23\% & 31\% & 9\% \\
+         & \textit{Lampard} & 26.3\% & 26\% & 39\% & 25\% \\
          \hline
-        Llama 3.1-8b-Instruct (Fine Tuned) & \textit{Maradona Hand of God} & 79.04\% & 79\% & 78\% & 77\% \\
-         & \textit{Luis Suarez Handball} & 79.5\% & 80\% & 79\% & 79\% \\
-         & \textit{Frank Lampard Ghost Goal} & 71.6 \% & 72\% & 72 \% & 72\% \\
+        Llama 3.1-8b (FT) & \textit{Maradona} & 79.0\% & 79\% & 78\% & 77\% \\
+         & \textit{Suarez} & 79.5\% & 80\% & 79\% & 79\% \\
+         & \textit{Lampard} & 71.6\% & 72\% & 72\% & 72\% \\
         \hline
     \end{tabular}
-    \caption{Comparison of models with/without fine-tuning on our constructed dataset}
+    \caption{Comparison of models with (FT)/without (NFT) fine-tuning on our dataset}
     \label{tab:student_info}
 \end{table*}
 \vspace{5mm}
@@ -430,12 +350,6 @@ Detailed results, including the distribution of stances (For, Against, Neutral, 
     
      Overall, \textit{Frank Lampard Ghost Goal} event is highly favoured as well as resented by the public. A balance between the three opinions can be found in \textit{Luis Suarez Handball} event.
 
-      \item \textit{Fine Tuning of LLMs}
-    \begin{enumerate}
-        \item The fine tuning was performed on 80-20 split of the labelled dataset. Without fine-tuning, Llama3.1-8b Instruct got an average of 35.6 \% and with fine-tuning on our constructed dataset, there was a drastic improvement of over 40 \% to 76.71 \%.
-        \item This improvement is majorly due to the quality of labels associated with the respective comments after a thorough human verification. Our models can be found here \footnote{\url{https://huggingface.co/YuvrajSingh9886/Llama3.1-8b-Maradona/}} \footnote{\url{https://huggingface.co/YuvrajSingh9886/Llama3.1-8b-Frank-Lampard/}} \footnote{\url{https://huggingface.co/YuvrajSingh9886/Llama-3.1-8b-Luis-Suarez}}. Our entire pipeline can be found here \footnote{\url{https://github.com/YuvrajSingh-mist/Public-Sports-Controversy/tree/master/data/PDFs}}
-       
-    \end{enumerate}
 
 
 \item \textit{Indepth analysis of stance labels}
@@ -443,26 +357,26 @@ Detailed results, including the distribution of stances (For, Against, Neutral, 
             \item We further investigated the primary stance labels, especially \textbf{Favor} and \textbf{Against}, by introducing more granular sub-categories: \textbf{Direct Praise}, \textbf{Indirect Praise}, \textbf{Direct Criticism}, and \textbf{Indirect Criticism}, along with tracking \textbf{Slang Use} and \textbf{Racial Abuse}. This allowed for a finer understanding of how different types of expressions correlate with overall sentiment across the datasets.
 
             % --- Summary Findings Start Here (as a nested list item) ---
-            \item Key relationships observed between these granular sub-categories and the main sentiment labels (referencing data from Tables 4, 5, and 6 \footnote{\url{https://github.com/YuvrajSingh-mist/Public-Sports-Controversy/blob/master/data/PDFs/Tables.pdf}}) include:
+            % \item Key relationships observed between these granular sub-categories and the main sentiment labels (referencing data from Tables 4, 5, and 6  include:
                 % \begin{itemize} % Start list for each event/individual
-                    \item \textbf{Maradona Hand of God Event (Ref: Table 4):}
-                        \begin{itemize}
-                            \item \textit{Clear Alignment:} Direct Praise (I=1) aligns 100\% with \textbf{Favor} (E=0); Direct Criticism (H=1) aligns 100\% with \textbf{Against} (E=1).
-                            \item \textit{Ambiguous Alignment:} Indirect Praise (K=1), Indirect Criticism (J=1), and Slang Use (L=1) are spread across multiple labels.
-                            \item \textit{Rare Instance:} Racial Abuse (M=1) appeared infrequently under both \textbf{Favor} and \textbf{Against}.
-                        \end{itemize}
+                    \item \textbf{Maradona Hand of God Event (Ref: Table 4 \footnote{\url{https://github.com/YuvrajSingh-mist/Public-Sports-Controversy/blob/master/data/PDFs/Tables.pdf}})):}
+                        % \begin{itemize}
+                             \textit{Clear Alignment:} Direct Praise (I=1) aligns 100\% with \textbf{Favor} (E=0); Direct Criticism (H=1) aligns 100\% with \textbf{Against} (E=1).
+                            \textit{Ambiguous Alignment:} Indirect Praise (K=1), Indirect Criticism (J=1), and Slang Use (L=1) are spread across multiple labels.
+                          \textit{Rare Instance:} Racial Abuse (M=1) appeared infrequently under both \textbf{Favor} and \textbf{Against}.
+                        % \end{itemize}
 
                     \item \textbf{Luis Suarez Handball Event (Ref: Table 5):}
-                        \begin{itemize}
-                            \item \textit{Strong Alignment:} Direct Criticism (I=1) shows 94\% alignment with \textbf{Against} (D=1); Direct Praise (J=1) shows 78\% alignment with \textbf{Favor} (D=0); Racial Abuse (N=1) shows 71\% alignment with \textbf{Against} (D=1).
-                            \item \textit{Weak Alignment:} Indirect Criticism (K=1) and Slang Use (M=1) lacked strong correlation with a single label.
-                        \end{itemize}
+                        % \begin{itemize}
+                             \textit{Strong Alignment:} Direct Criticism (I=1) shows 94\% alignment with \textbf{Against} (D=1); Direct Praise (J=1) shows 78\% alignment with \textbf{Favor} (D=0); Racial Abuse (N=1) shows 71\% alignment with \textbf{Against} (D=1).
+                           \textit{Weak Alignment:} Indirect Criticism (K=1) and Slang Use (M=1) lacked strong correlation with a single label.
+                        % \end{itemize}
 
                     \item \textbf{Frank Lampard Ghost Goal Event (Ref: Table 6):}
-                         \begin{itemize}
-                            \item \textit{Clear Alignment:} Direct Criticism (I) aligns 100\% with \textbf{Against} (H=1); Direct Praise (J) aligns 100\% with \textbf{Favor} (H=0).
-                            \item \textit{Notable Trends:} Approx. 54\% of Indirect Criticism (K) comments were labeled \textbf{Favor} (H=0); Approx. 57\% of Slang Use (M) comments were labeled \textbf{Against} (H=1).
-                        \end{itemize}
+                         % \begin{itemize}
+                             \textit{Clear Alignment:} Direct Criticism (I) aligns 100\% with \textbf{Against} (H=1); Direct Praise (J) aligns 100\% with \textbf{Favor} (H=0).
+                             \textit{Notable Trends:} Approx. 54\% of Indirect Criticism (K) comments were labeled \textbf{Favor} (H=0); Approx. 57\% of Slang Use (M) comments were labeled \textbf{Against} (H=1).
+                        % \end{itemize}
                 % \end{itemize} % End list for each event/individual
             % --- Summary Findings End Here ---
 
@@ -477,9 +391,21 @@ Detailed results, including the distribution of stances (For, Against, Neutral, 
 
      \begin{figure}[ht]
          \centering
-         \includegraphics[width=0.9\columnwidth]{frank-positive-class.jpg}
-         \caption{Attention heatmap for the fine-tuned (positive class) LLama 3.1-8b-Instruct model showing focused attention on tokens relevant to answer generation.}
-         \label{fig:positive-class}
+         \begin{minipage}{0.35\textwidth}
+             \centering
+             \includegraphics[width=\linewidth]{frank-positive-class.jpg}
+             \caption{\footnotesize Frank Lampard}
+             \label{fig:frank-positive-class}
+         \end{minipage}
+         \hfill
+         \begin{minipage}{0.35\textwidth}
+             \centering
+             \includegraphics[width=\linewidth]{Suarez-positive-probing.jpg}
+             \caption{\footnotesize Suarez}
+             \label{fig:suarez-positive-probing}
+         \end{minipage}
+         \caption{\footnotesize Attention heatmaps for fine-tuned LLama model.}
+         \label{fig:positive-class-heatmaps}
      \end{figure}
 
      The attention outputs is particularly high for the tokens - \texttt{exact\_answer\_first} and \texttt{exact\_answer\_last} for fine tuned model for majority of the layers, while for the non fine tuned one, it was high for all the tokens and layers, not consolidating to tokens particular to the answer to be generated, or the labels.
@@ -488,29 +414,11 @@ Detailed results, including the distribution of stances (For, Against, Neutral, 
      Due to the high metric (f1) for the fine-tuned model, we termed the labels generated to be a 'positive class' and for the other model to be a 'negative class' (low f1 score).
      
      We can see that the heatmap for the positive class model has high attention outputs for the tokens corresponding to the labels to be generated or the answer in particular, while it attends to every token or haywire for the non-fine-tuned negative class model.
-     
-
+    
 \end{enumerate}
 
-    
-% \end{enumerate}
-
-% \subsection{Challenges Encountered}
-% During preprocessing, challenges such as handling noisy data, duplicate entries, and variations in comment formats were encountered. For stance detection, ensuring reliable automated classification and consistent JSON parsing proved difficult. These challenges motivated the use of structured prompts and robust frameworks like OLLAMA.
-
-% \subsection{Future Directions}
-% Future work will focus on:
-% \begin{itemize}
-%   \item Refining sentiment classification models using advanced machine learning techniques.
-%   \item Expanding the dataset to include a broader range of sports controversies.
-%   \item Enhancing preprocessing methods and fine-tuning model parameters to improve overall performance.
-% \end{itemize}
-
-% \section{Ethical Considerations}
-% In this study, the ethical use of publicly available YouTube data was ensured. All data were anonymized and processed in accordance with ACM's policies on research involving human subjects. Informed consent was addressed by using publicly accessible data without any direct identification of individuals.
-
 \section{Conclusion}
-This study highlights the role of social media in shaping public perception of sports controversies. The integration of automated data extraction and stance detection provides a comprehensive view of audience sentiment. Future enhancements will aim to improve accuracy and broaden the scope of analysis.
+This study highlights the role of social media in shaping public perception of sports controversies. Integrating automated data extraction and stance detection provides a comprehensive view of audience sentiment. Future enhancements will aim to improve accuracy and broaden the scope of analysis.
 
 
 
