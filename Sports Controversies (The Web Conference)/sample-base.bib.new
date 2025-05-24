@@ -1,0 +1,7 @@
+@article{orgad2024llms,
+  title={LLMs Know More Than They Show: On the Intrinsic Representation of LLM Hallucinations},
+  author={Orgad, Hadas and Toker, Michael and Gekhman, Zorik and Reichart, Roi and Szpektor, Idan and Kotek, Hadas and Belinkov, Yonatan},
+  journal={arXiv preprint arXiv:2410.02707},
+  year={2024},
+  url={https://arxiv.org/abs/2410.02707}
+}
